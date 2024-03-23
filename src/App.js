@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import QuoteBox from './QuoteBox';
+import api from "./api/Quote";
 
 function App() {
+  const [quote, setQuote] = useState('');
+  useEffect(() => {
+    const fetchQuote = async() => {
+      try{
+        const response = await api.get('/random');
+        setQuote(response.data.content);
+      }catch(error){
+        if (error.response){//there is a response but not 200 range
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        }else console.log(`Error: ${error.message}`); //no response,..
+
+      }
+    }
+    fetchQuote();
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <QuoteBox quote={quote} />
     </div>
   );
 }
