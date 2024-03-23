@@ -4,12 +4,13 @@ import QuoteBox from './QuoteBox';
 import api from "./api/Quote";
 
 function App() {
-  const [quote, setQuote] = useState('');
+  const [quote, setQuote] = useState([]);
   useEffect(() => {
     const fetchQuote = async() => {
       try{
-        const response = await api.get('/random');
-        setQuote(response.data.content);
+        const response = await api.get(`/random?maxLength=${150}`);
+        const data = response.data;
+        setQuote([data.content, data.author]);
       }catch(error){
         if (error.response){//there is a response but not 200 range
           console.log(error.response.data);
@@ -24,7 +25,9 @@ function App() {
 
   return (
     <div className="App">
-      <QuoteBox quote={quote} />
+      <main>
+        <QuoteBox className="QuoteBox" quote={quote} />
+      </main>  
     </div>
   );
 }

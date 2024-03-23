@@ -1,38 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  font-family: "Supermercado One", sans-serif;
+  font-size: 15px;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+main{
+  height: 300px;
+  width: 600px;
+  background-color: azure;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.quote-content h1{
+  display: inline;
+}
+
+.quoteLeft {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+.quote-content{
+  margin: 50px;
+  text-align: center;
+
+}
+.quote-content h2{
+  margin-top: 50px;
+  text-align: end;
+}
+
+.quote-content h2::before{
+  content: '-' ;
+}
+
+
+@media (max-width: 768px) {
+  .App {
+    font-size: 10px;
+      transform: scale(0.5); /* Change scale for zoom effect */
   }
 }
+
