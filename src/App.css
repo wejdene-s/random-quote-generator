@@ -17,14 +17,14 @@
 }
 
 main{
-  height: 300px;
   width: 600px;
   background-color: azure;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
 }
 
-.quote-content h1{
+.content h1{
   display: inline;
 }
 
@@ -32,18 +32,42 @@ main{
   font-size: 2rem;
   margin-right: 1rem;
 }
-.quote-content{
+span{
+  text-align: center;
+}
+.content{
   margin: 50px;
   text-align: center;
-
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-evenly;
 }
-.quote-content h2{
+#author{
   margin-top: 50px;
   text-align: end;
+  font-weight: lighter;
 }
 
-.quote-content h2::before{
+#author::before{
   content: '-' ;
+}
+
+#new-quote {
+  font: inherit;
+  width: 100px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 10px;
+  align-items: 
+
+
+
+
+}
+#new-quote:hover{
+  cursor: pointer;
 }
 
 
